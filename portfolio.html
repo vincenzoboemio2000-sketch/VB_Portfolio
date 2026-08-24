@@ -30,7 +30,7 @@
   .hero {
     background: var(--navy);
     color: var(--white);
-    padding: 80px 40px;
+    padding: 80px 40px 64px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -76,7 +76,7 @@
   .hero-desc {
     font-size: 14px;
     font-weight: 300;
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
     line-height: 1.8;
     color: rgba(255,255,255,0.8);
@@ -97,19 +97,58 @@
     text-decoration: none;
   }
 
+  /* === IMPACT STRIP === */
+  .impact-strip {
+    max-width: 900px;
+    margin: -32px auto 0;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .impact-item {
+    padding: 22px 16px;
+    text-align: center;
+    border-right: 1px solid #eee;
+  }
+
+  .impact-item:last-child { border-right: none; }
+
+  .impact-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+
+  .impact-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 6px;
+  }
+
   /* === NAV === */
   .nav-bar {
     background: var(--white);
     padding: 16px 40px;
     display: flex;
     justify-content: center;
-    gap: 28px;
+    gap: 22px;
     flex-wrap: wrap;
     border-bottom: 1px solid #e0e0e0;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 40px;
   }
 
   .nav-bar a {
@@ -134,6 +173,33 @@
     max-width: 900px;
     margin: 48px auto;
     padding: 0 24px;
+  }
+
+  .divider-title {
+    max-width: 900px;
+    margin: 64px auto 0;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .divider-title h2 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .divider-title p {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--gray);
+    max-width: 640px;
+    margin: 14px auto 0;
+    line-height: 1.7;
   }
 
   .case-card {
@@ -271,6 +337,10 @@
     color: #c62828;
   }
 
+  .kpi-delta.neutral {
+    color: var(--gray);
+  }
+
   /* Activity list */
   .activity-list {
     list-style: none;
@@ -373,8 +443,11 @@
 
   /* Responsive */
   @media (max-width: 600px) {
-    .hero { padding: 48px 24px; }
+    .hero { padding: 48px 24px 40px; }
     .hero h1 { font-size: 24px; }
+    .impact-strip { grid-template-columns: repeat(2, 1fr); margin-top: -24px; }
+    .impact-item:nth-child(2) { border-right: none; }
+    .impact-item:nth-child(1), .impact-item:nth-child(2) { border-bottom: 1px solid #eee; }
     .case-header, .case-body { padding: 24px; }
     .kpi-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-bar { gap: 12px; }
@@ -395,9 +468,9 @@
 <div class="hero">
   <img src="cv_photo.png" alt="Vincenzo Boemio" class="hero-photo">
   <h1>Vincenzo Boemio</h1>
-  <div class="hero-subtitle">Portfolio | Digital Strategy & Performance Marketing</div>
+  <div class="hero-subtitle">Digital Strategist &amp; Growth</div>
   <p class="hero-desc">
-    Una selezione di progetti e casi studio che raccontano il mio approccio alla crescita digitale di brand e-commerce. Per ogni progetto troverai il contesto, le attivit&agrave; svolte e, dove disponibili, i risultati ottenuti.
+    Progetto e gestisco la crescita digitale di brand e-commerce lungo l'intero funnel: strategia, media buying multicanale, CRM e retention. Per ogni progetto trovi il settore di riferimento, le attivit&agrave; che ho svolto, i risultati misurati sui KPI rilevanti per quel business e il budget gestito.
   </p>
   <div class="hero-contacts">
     <span>vincenzoboemio2000@gmail.com</span>
@@ -406,15 +479,38 @@
   </div>
 </div>
 
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-item">
+    <div class="impact-value">10</div>
+    <div class="impact-label">Brand seguiti</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-value">6+</div>
+    <div class="impact-label">Settori verticali</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-value">5</div>
+    <div class="impact-label">Canali gestiti</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-value">Full&nbsp;Funnel</div>
+    <div class="impact-label">Strategia &amp; Performance</div>
+  </div>
+</div>
+
 <!-- NAV -->
 <div class="nav-bar">
   <a href="#massari">Iginio Massari</a>
   <a href="#marinella">E. Marinella</a>
   <a href="#fusco">Fusco Boutique</a>
-  <a href="#artemisia">Artemisia</a>
-  <a href="#hellobagno">Hello Bagno</a>
-  <a href="#5om">5tate of Mind</a>
   <a href="#webgas">WebGas</a>
+  <a href="#uptonica">UpTonica</a>
+  <a href="#hellobagno">Hello Bagno</a>
+  <a href="#artemisia">Artemisia</a>
+  <a href="#5om">5tate of Mind</a>
+  <a href="#maruse">Maruse</a>
+  <a href="#avilia">Avilia Home</a>
 </div>
 
 <!-- ==================== IGINIO MASSARI ==================== -->
@@ -423,31 +519,25 @@
     <div class="case-header">
       <div class="case-tag">Caso studio</div>
       <div class="case-client">Iginio Massari</div>
-      <div class="case-sector">Food | Haute P&acirc;tisserie | Google Ads & Lead Generation</div>
-      <div class="case-budget">Budget gestito: ~8.500 &euro;/mese | Google Ads + Meta Ads</div>
+      <div class="case-sector">Food &amp; Haute P&acirc;tisserie</div>
+      <div class="case-budget">Budget gestito: ~120.000&ndash;160.000 &euro;/anno | Google Ads + Meta Ads | picchi stagionali</div>
     </div>
     <div class="case-body">
 
-      <div class="case-section-title">Il cliente</div>
+      <div class="case-section-title">Contesto</div>
       <p class="case-text">
-        Iginio Massari Alta Pasticceria &egrave; il brand del maestro pasticcere pi&ugrave; noto d'Italia. Un punto di riferimento internazionale nell'alta pasticceria, con una presenza retail e un e-commerce dedicato alla vendita di prodotti dolciari premium.
-      </p>
-
-      <div class="case-section-title">La sfida</div>
-      <p class="case-text">
-        Sviluppare due direttrici di crescita digitale: una <strong>B2B</strong>, focalizzata sulla lead generation per i regali aziendali di Natale (gifting corporate), e una <strong>B2C</strong>, dedicata alla promozione dell'e-commerce in occasione dei periodi festivi chiave: Natale, San Valentino e Pasqua.
+        Il brand del maestro pasticcere pi&ugrave; noto d'Italia, riferimento internazionale nell'alta pasticceria, con presenza retail e un e-commerce di prodotti dolciari premium. La sfida: costruire due direttrici di crescita, una <strong>B2B</strong> di lead generation per il gifting aziendale di Natale e una <strong>B2C</strong> stagionale sui picchi festivi (Natale, San Valentino, Pasqua).
       </p>
 
       <div class="case-section-title">Attivit&agrave; svolte</div>
       <ul class="activity-list">
-        <li>Progettazione e gestione di campagne Google Ads B2B per lead generation corporate gifting (Natale)</li>
-        <li>Pianificazione e gestione di campagne B2C stagionali su Google Ads per Natale, San Valentino e Pasqua</li>
-        <li>Gestione campagne Meta Ads per awareness e conversione e-commerce</li>
-        <li>Definizione della strategia di targeting e segmentazione per ciascun periodo</li>
+        <li>Progettazione e gestione delle campagne Google Ads B2B per lead generation corporate gifting</li>
+        <li>Pianificazione e gestione delle campagne B2C stagionali su Google Ads e Meta Ads</li>
+        <li>Definizione di targeting e segmentazione per ciascun periodo commerciale</li>
         <li>Reportistica periodica e ottimizzazione continua delle campagne</li>
       </ul>
 
-      <div class="case-section-title">Risultati B2B | Campagna Natale 2025</div>
+      <div class="case-section-title">Risultati B2B | Corporate gifting natalizio</div>
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-value">32,6x</div>
@@ -455,7 +545,7 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-value">54,5%</div>
-          <div class="kpi-label">Conversion rate lead &gt; cliente</div>
+          <div class="kpi-label">CR lead &gt; cliente</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-value">24</div>
@@ -465,18 +555,38 @@
           <div class="kpi-value">91%</div>
           <div class="kpi-label">Lead qualificati sul totale</div>
         </div>
+      </div>
+
+      <div class="case-section-title">Risultati B2C | E-commerce</div>
+      <div class="kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-value">70,5%</div>
-          <div class="kpi-label">CR lead &gt; preventivo</div>
+          <div class="kpi-value">12,1x</div>
+          <div class="kpi-label">ROAS</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-value">77,4%</div>
-          <div class="kpi-label">CR preventivo &gt; cliente</div>
+          <div class="kpi-value">17,6x</div>
+          <div class="kpi-label">MER</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">25.562</div>
+          <div class="kpi-label">Ordini</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">&euro;9,30</div>
+          <div class="kpi-label">CPA</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">&euro;97</div>
+          <div class="kpi-label">AOV</div>
         </div>
       </div>
 
-      <div class="case-section-title">Periodo</div>
-      <p class="case-text">2025 | Presente <span class="status-badge active">Attivo</span></p>
+      <div class="case-section-title">Split per canale (B2C)</div>
+      <table class="data-table">
+        <tr><th>Canale</th><th>Spesa</th><th>ROAS</th></tr>
+        <tr><td>Google Ads</td><td>~&euro;46K</td><td class="highlight">19,5x</td></tr>
+        <tr><td>Meta Ads</td><td>~&euro;95K</td><td class="highlight">8,6x</td></tr>
+      </table>
 
     </div>
   </div>
@@ -488,29 +598,23 @@
     <div class="case-header">
       <div class="case-tag">Caso studio</div>
       <div class="case-client">E. Marinella</div>
-      <div class="case-sector">Luxury Fashion | Sartoria dal 1914 | Email Marketing & CRM</div>
-      <div class="case-budget">Scope: Email Marketing & CRM | Klaviyo</div>
+      <div class="case-sector">Luxury Fashion &amp; Sartoria</div>
+      <div class="case-budget">Scope: Email Marketing &amp; CRM | Klaviyo</div>
     </div>
     <div class="case-body">
 
-      <div class="case-section-title">Il cliente</div>
+      <div class="case-section-title">Contesto</div>
       <p class="case-text">
-        E. Marinella &egrave; una maison napoletana fondata nel 1914, oggi alla quarta generazione. Sei store monomarca nel mondo e distribuzione luxury internazionale. Prodotto iconico: la cravatta sartoriale, indossata da capi di stato, imprenditori e collezionisti.
-      </p>
-
-      <div class="case-section-title">La sfida</div>
-      <p class="case-text">
-        Il brand aveva un database clienti frammentato tra Brevo e Shopify Email, nessun flusso automatizzato attivo e una strategia di email marketing non strutturata. L'obiettivo era trasformare l'email in un canale di revenue ricorrente, aumentare il tasso di riacquisto e costruire una comunicazione coerente con il posizionamento luxury del brand.
+        Maison napoletana fondata nel 1914, oggi alla quarta generazione: sei store monomarca nel mondo e distribuzione luxury internazionale, con la cravatta sartoriale come prodotto iconico. Il database era frammentato tra Brevo e Shopify Email, senza flussi automatizzati n&eacute; una strategia strutturata. Obiettivo: trasformare l'email in un canale di revenue ricorrente e aumentare il riacquisto, coerentemente con il posizionamento luxury.
       </p>
 
       <div class="case-section-title">Attivit&agrave; svolte</div>
       <ul class="activity-list">
         <li>Migrazione completa del database su Klaviyo e unificazione dei profili da pi&ugrave; fonti</li>
-        <li>Progettazione e implementazione di flussi automatizzati: Welcome, Carrello Abbandonato, Checkout Abbandonato, Cross-Sell, Winback</li>
+        <li>Progettazione dei flussi automatizzati: Welcome, Carrello e Checkout Abbandonato, Cross-Sell, Winback</li>
         <li>Segmentazione avanzata per comportamento d'acquisto, geolocalizzazione e lingua (ITA + ENG)</li>
-        <li>Creazione di campagne bilingue con tone of voice luxury: cravatte, foulard, accessori donna, eventi esclusivi</li>
-        <li>Design email custom coerente con l'identit&agrave; del brand: palette navy/oro, font serif, layout minimalista da magazine</li>
-        <li>Mailing geolocalizzati per eventi (apertura store Capri: 20K profili ITA + 1.5K profili internazionali)</li>
+        <li>Campagne bilingue con tone of voice luxury e design email custom (palette navy/oro, layout da magazine)</li>
+        <li>Mailing geolocalizzati per eventi (apertura store Capri: 20K profili ITA + 1.5K internazionali)</li>
       </ul>
 
       <div class="case-section-title">Risultati</div>
@@ -521,37 +625,21 @@
           <div class="kpi-delta">11,4% &rarr; 22,1%</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-value">99K</div>
-          <div class="kpi-label">Profili Klaviyo</div>
-          <div class="kpi-delta">da 51K in 7 mesi</div>
-        </div>
-        <div class="kpi-card">
           <div class="kpi-value">69%</div>
           <div class="kpi-label">Revenue da flussi automatizzati</div>
           <div class="kpi-delta">vs 31% campagne manuali</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-value">77,7%</div>
-          <div class="kpi-label">Open rate flussi</div>
-          <div class="kpi-delta">Giu 2026</div>
+          <div class="kpi-value">99K</div>
+          <div class="kpi-label">Profili Klaviyo</div>
+          <div class="kpi-delta">da 51K (+94%)</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-value">8,3%</div>
-          <div class="kpi-label">CR checkout abbandonato</div>
-          <div class="kpi-delta">recupero carrelli</div>
+          <div class="kpi-value">+112%</div>
+          <div class="kpi-label">Revenue / destinatario</div>
+          <div class="kpi-delta">2x vs mediana peer</div>
         </div>
       </div>
-
-      <div class="case-section-title">Performance vs peer (benchmark Klaviyo)</div>
-      <table class="data-table">
-        <tr><th>Metrica</th><th>E. Marinella</th><th>Mediana peer</th><th>Delta</th></tr>
-        <tr><td>Revenue / destinatario</td><td class="highlight">+112%</td><td>baseline</td><td class="highlight">2x vs mediana</td></tr>
-        <tr><td>Conversion rate flussi</td><td class="highlight">1,38%</td><td>0,98%</td><td class="highlight">+41%</td></tr>
-        <tr><td>Click-through rate</td><td class="highlight">8,13%</td><td>7,96%</td><td class="highlight">+2%</td></tr>
-      </table>
-
-      <div class="case-section-title">Periodo</div>
-      <p class="case-text">Febbraio 2025 | Presente <span class="status-badge active">Attivo</span></p>
 
     </div>
   </div>
@@ -563,30 +651,24 @@
     <div class="case-header">
       <div class="case-tag">Caso studio</div>
       <div class="case-client">Fusco Boutique</div>
-      <div class="case-sector">Multibrand Fashion | E-commerce Shopify | Full-Funnel Performance</div>
-      <div class="case-budget">Budget gestito: ~8.000 &euro;/mese | Google Ads + Meta Ads + Klaviyo</div>
+      <div class="case-sector">Multibrand Fashion &amp; Luxury</div>
+      <div class="case-budget">Budget gestito: ~6.000&ndash;10.000 &euro;/mese | Google Ads + Meta Ads + Klaviyo</div>
     </div>
     <div class="case-body">
 
-      <div class="case-section-title">Il cliente</div>
+      <div class="case-section-title">Contesto</div>
       <p class="case-text">
-        Fusco Boutique &egrave; un multibrand fashion che opera su Shopify, con un catalogo di brand premium e luxury (Premiata, Golden Goose, Lemaire, Isabel Marant, Maison Margiela). Mercato principale Italia, con espansione attiva su Olanda, Francia e Germania.
-      </p>
-
-      <div class="case-section-title">La sfida</div>
-      <p class="case-text">
-        Alla presa in carico (Q4 2024) il brand aveva un MER di 2,7x e un costo per ordine elevato. L'efficienza pubblicitaria era insufficiente e il business operava in perdita. L'obiettivo era scalare il fatturato mantenendo l'efficienza e portare il business in profitto.
+        Multibrand fashion su Shopify con catalogo premium e luxury (Premiata, Golden Goose, Lemaire, Isabel Marant, Maison Margiela), mercato principale Italia ed espansione su Olanda, Francia e Germania. Alla presa in carico il business operava in perdita, con MER 2,7x e costo per ordine elevato. Obiettivo: scalare i volumi mantenendo l'efficienza e portare il business in profitto.
       </p>
 
       <div class="case-section-title">Attivit&agrave; svolte</div>
       <ul class="activity-list">
-        <li>Ristrutturazione completa delle campagne Google Ads: PMax a 4 tier (Hero, Mid, Volume, Zombie) con segmentazione per marginalit&agrave;</li>
-        <li>Strategia di repricing basata su margine target 50% per alimentare il feed Shopping con prodotti profittevoli</li>
-        <li>Gestione campagne Meta Ads: prospecting + retargeting con creativit&agrave; product-centered</li>
-        <li>Espansione internazionale: apertura mercati EU (Olanda, Francia) con campagne PMax dedicate</li>
-        <li>Setup e gestione Klaviyo: flussi automatizzati + campagne, database da 24K a 35K profili</li>
-        <li>Lead generation Meta per crescita database e-commerce</li>
-        <li>Analisi settimanale delle performance e riallocazione budget in base ai risultati</li>
+        <li>Ristrutturazione delle campagne Google Ads: PMax a 4 tier (Hero, Mid, Volume, Zombie) segmentati per marginalit&agrave;</li>
+        <li>Strategia di repricing su margine target 50% per alimentare il feed Shopping con prodotti profittevoli</li>
+        <li>Campagne Meta Ads prospecting + retargeting con creativit&agrave; product-centered</li>
+        <li>Espansione internazionale con campagne PMax dedicate ai mercati EU</li>
+        <li>Setup e gestione Klaviyo: flussi + campagne, database da 24K a 35K profili</li>
+        <li>Analisi settimanale delle performance e riallocazione budget sui risultati</li>
       </ul>
 
       <div class="case-section-title">Risultati</div>
@@ -594,7 +676,7 @@
         <div class="kpi-card">
           <div class="kpi-value">+955%</div>
           <div class="kpi-label">Crescita revenue mensile</div>
-          <div class="kpi-delta">in 15 mesi</div>
+          <div class="kpi-delta">picco vs avvio</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-value">14,6x</div>
@@ -609,7 +691,7 @@
         <div class="kpi-card">
           <div class="kpi-value">+40%</div>
           <div class="kpi-label">Revenue YoY</div>
-          <div class="kpi-delta">primi 7 mesi 2026 vs 2025</div>
+          <div class="kpi-delta">anno su anno</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-value">+11%</div>
@@ -625,11 +707,11 @@
 
       <div class="case-section-title">Evoluzione performance</div>
       <table class="data-table">
-        <tr><th>Periodo</th><th>Ordini</th><th>MER</th><th>Revenue YoY</th></tr>
-        <tr><td>Q4 2024 (pre-WebGas)</td><td>268</td><td>3,0x</td><td>baseline</td></tr>
-        <tr><td>1&deg; semestre 2025</td><td>698</td><td>3,5x</td><td>—</td></tr>
-        <tr><td>2&deg; semestre 2025</td><td>1.343</td><td>6,4x</td><td>—</td></tr>
-        <tr><td class="highlight">1&deg; semestre 2026</td><td class="highlight">2.536</td><td class="highlight">8,2x</td><td class="highlight">+303%</td></tr>
+        <tr><th>Fase</th><th>Ordini</th><th>MER</th><th>Revenue YoY</th></tr>
+        <tr><td>Baseline (pre-gestione)</td><td>268</td><td>3,0x</td><td>baseline</td></tr>
+        <tr><td>Fase 1</td><td>698</td><td>3,5x</td><td>&mdash;</td></tr>
+        <tr><td>Fase 2</td><td>1.343</td><td>6,4x</td><td>&mdash;</td></tr>
+        <tr><td class="highlight">Oggi</td><td class="highlight">2.536</td><td class="highlight">8,2x</td><td class="highlight">+303%</td></tr>
       </table>
 
       <div class="case-section-title">Klaviyo (email marketing)</div>
@@ -651,174 +733,6 @@
         </div>
       </div>
 
-      <div class="case-section-title">Periodo</div>
-      <p class="case-text">Ottobre 2024 | Presente <span class="status-badge active">Attivo</span></p>
-
-    </div>
-  </div>
-</div>
-
-<!-- ==================== ARTEMISIA CORNICI ==================== -->
-<div class="section" id="artemisia">
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-tag">Accelerazione digitale</div>
-      <div class="case-client">Artemisia Cornici</div>
-      <div class="case-sector">Home Decor | Amazon IT | Marketplace Strategy</div>
-      <div class="case-budget">Budget gestito: ~1.300 &euro;/mese | Amazon Ads</div>
-    </div>
-    <div class="case-body">
-
-      <div class="case-section-title">Il cliente</div>
-      <p class="case-text">
-        Artemisia Cornici &egrave; un brand italiano di cornici artigianali Made in Italy. Prodotti di punta: cornici Cuoricino e formato A4, posizionati nella fascia premium del mercato Amazon.
-      </p>
-
-      <div class="case-section-title">La sfida</div>
-      <p class="case-text">
-        Il brand non aveva alcuna presenza digitale. Zero vendite online, zero posizionamento, zero infrastruttura. L'obiettivo era costruire da zero l'intero ecosistema commerciale su Amazon: dal catalogo alle campagne, fino alla generazione delle prime vendite e alla costruzione di un posizionamento organico sostenibile.
-      </p>
-
-      <div class="case-section-title">Attivit&agrave; svolte</div>
-      <ul class="activity-list">
-        <li>Scrittura e ottimizzazione delle schede prodotto Amazon (titoli, bullet point, backend keywords, A+ Content)</li>
-        <li>Gestione completa dell'account Seller Central e del catalogo prodotti</li>
-        <li>Setup e gestione campagne Amazon Ads (Sponsored Products)</li>
-        <li>Implementazione badge "Made in Italy" per rafforzare il posizionamento premium</li>
-        <li>Analisi keyword e ottimizzazione progressiva per la crescita del posizionamento organico</li>
-        <li>Avvio test FBA + Prime per migliorare visibilit&agrave; e conversion rate</li>
-      </ul>
-
-      <div class="case-section-title">Crescita nei primi 7 mesi</div>
-      <p class="case-text">
-        Partendo da zero, il brand ha raggiunto una crescita costante mese su mese sia in termini di ordini che di revenue. Il lavoro sulle schede prodotto e sull'ottimizzazione delle keyword ha portato alla costruzione di un <strong>posizionamento organico</strong> che oggi genera vendite anche senza investimento pubblicitario.
-      </p>
-
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-value">Da 0</div>
-          <div class="kpi-label">Punto di partenza</div>
-          <div class="kpi-delta">nessuna vendita online</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value">+450%</div>
-          <div class="kpi-label">Crescita ordini mensili</div>
-          <div class="kpi-delta">nei primi 7 mesi</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value">+120%</div>
-          <div class="kpi-label">Crescita AOV</div>
-          <div class="kpi-delta">prodotto medio pi&ugrave; alto</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value">Organico</div>
-          <div class="kpi-label">Vendite spontanee</div>
-          <div class="kpi-delta">attive dopo 4 mesi</div>
-        </div>
-      </div>
-
-      <p class="case-text" style="margin-top:16px;">
-        Il progetto dimostra come un brand artigianale senza esperienza digitale possa costruire una presenza online strutturata e sostenibile attraverso un percorso di accelerazione che integra contenuto, advertising e ottimizzazione del catalogo.
-      </p>
-
-      <div class="case-section-title">Periodo</div>
-      <p class="case-text">Dicembre 2025 | Presente <span class="status-badge active">Attivo</span></p>
-
-    </div>
-  </div>
-</div>
-
-<!-- ==================== HELLO BAGNO ==================== -->
-<div class="section" id="hellobagno">
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-tag">Nuovo progetto</div>
-      <div class="case-client">Hello Bagno</div>
-      <div class="case-sector">Arredo Bagno & Giardino | E-commerce | Full-Funnel Strategy</div>
-      <div class="case-budget">Budget gestito: ~5.000 &euro;/mese | Google Ads + Meta Ads + Klaviyo</div>
-    </div>
-    <div class="case-body">
-
-      <div class="case-section-title">Il cliente</div>
-      <p class="case-text">
-        Hello Bagno &egrave; un e-commerce italiano verticale sull'arredo bagno, con un catalogo di oltre 20.000 SKU e brand come Geberit, Grohe, Ideal Standard, Paffoni. Fatturato 2024: &euro;242K, con l'obiettivo di raggiungere &euro;600K.
-      </p>
-
-      <div class="case-section-title">La sfida</div>
-      <p class="case-text">
-        Il brand aveva un problema strutturale di tracking (2-3 mesi di dati persi e circa &euro;7.750 di budget bruciato senza misurazione), nessuna strategia di segmentazione del catalogo per marginalit&agrave;, campagne Search non-brand assenti, e un competitor dominante (Deghi) con brand awareness nettamente superiore.
-      </p>
-
-      <div class="case-section-title">Attivit&agrave; svolte</div>
-      <ul class="activity-list">
-        <li>Audit completo delle campagne esistenti e identificazione delle 4 campagne in perdita da pausare</li>
-        <li>Definizione della strategia: focus sulla categoria Bagno (6 sottocategorie), esclusione delle categorie a bassa marginalit&agrave;</li>
-        <li>Ristrutturazione campagne Google Ads: Search, Shopping, PMax, Display, YouTube e retargeting</li>
-        <li>Setup campagne Meta Ads (Facebook + Instagram) full funnel</li>
-        <li>Configurazione Klaviyo e migrazione da MailChimp</li>
-        <li>Correzione del setup di tracking e dell'infrastruttura dati</li>
-      </ul>
-
-      <div class="case-section-title">Periodo</div>
-      <p class="case-text">Giugno 2026 | Presente <span class="status-badge ongoing">In corso</span></p>
-
-    </div>
-  </div>
-</div>
-
-<!-- ==================== 5TATE OF MIND ==================== -->
-<div class="section" id="5om">
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-tag">Progetto in corso</div>
-      <div class="case-client">5tate of Mind</div>
-      <div class="case-sector">Streetwear | Brand co-fondato da Gu&egrave; | Branding & Growth</div>
-    </div>
-    <div class="case-body">
-
-      <div class="case-section-title">Il cliente</div>
-      <p class="case-text">
-        5tate of Mind &egrave; un brand streetwear italiano con circa 15 anni di heritage nella cultura hip-hop italiana, co-fondato dal rapper Gu&egrave; (Cosimo Fini). E-commerce su Shopify, fatturato attuale circa &euro;250K, fermo da due anni.
-      </p>
-
-      <div class="case-section-title">La sfida</div>
-      <p class="case-text">
-        Costruire un'identit&agrave; di brand autonoma e scalabile, riducendo la dipendenza dalla fanbase dell'artista. L'obiettivo &egrave; raddoppiare il fatturato anno su anno fino a raggiungere &euro;1M in due anni, combinando branding, acquisizione e retention attraverso una strategia omnicanale.
-      </p>
-
-      <div class="case-section-title">Attivit&agrave; previste</div>
-      <ul class="activity-list">
-        <li>Strategia integrata: Meta Ads (prospecting + retargeting), Google Ads (brand protection), Klaviyo (email + WhatsApp)</li>
-        <li>Campagne Meta full-funnel: awareness con angoli lifestyle e valori, MOFU su viewer qualificati, BOFU catalogo</li>
-        <li>Lead generation per crescita database Klaviyo</li>
-        <li>Ottimizzazione UX/CRO del sito (sticky bar, social proof, sistema recensioni)</li>
-        <li>Rigenerazione schede prodotto con AI (UpTonica)</li>
-        <li>Coordinamento con il team marketing interno e il referente ads storico del brand</li>
-      </ul>
-
-      <div class="case-section-title">Dati baseline</div>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-value">&euro;252K</div>
-          <div class="kpi-label">Revenue attuale</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value">&euro;86</div>
-          <div class="kpi-label">AOV</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value">0,82%</div>
-          <div class="kpi-label">Conversion rate</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-value">23,5%</div>
-          <div class="kpi-label">Clienti abituali</div>
-        </div>
-      </div>
-
-      <div class="case-section-title">Periodo</div>
-      <p class="case-text">Luglio 2026 | Presente <span class="status-badge ongoing">In corso</span></p>
-
     </div>
   </div>
 </div>
@@ -829,27 +743,22 @@
     <div class="case-header">
       <div class="case-tag">Progetto interno</div>
       <div class="case-client">WebGas</div>
-      <div class="case-sector">Performance Marketing Agency | Lead Generation B2B</div>
-      <div class="case-budget">Budget gestito: ~1.300 &euro;/mese | Meta Ads</div>
+      <div class="case-sector">Performance Marketing Agency &amp; Lead Generation B2B</div>
+      <div class="case-budget">Budget gestito: ~1.500&ndash;3.500 &euro;/mese | Meta Ads</div>
     </div>
     <div class="case-body">
 
-      <div class="case-section-title">Il contesto</div>
+      <div class="case-section-title">Contesto</div>
       <p class="case-text">
-        WebGas &egrave; l'agenzia di performance marketing in cui opero come Digital Strategist. Oltre alla gestione dei clienti, ho progettato e gestito le campagne di lead generation per l'acquisizione di nuovi clienti qualificati per l'agenzia stessa.
-      </p>
-
-      <div class="case-section-title">La strategia</div>
-      <p class="case-text">
-        Campagne Meta Ads con approccio lead magnet: contenuti di valore (case study, analisi, risorse operative) offerti in cambio dei dati di contatto di decision maker e-commerce. Targeting su imprenditori, e-commerce manager e marketing manager di aziende strutturate.
+        WebGas &egrave; l'agenzia di performance marketing in cui opero come Digital Strategist. Oltre alla gestione dei clienti, in team abbiamo progettato e gestito la lead generation dell'agenzia stessa: acquisizione di decision maker e-commerce qualificati tramite campagne Meta con approccio lead magnet (case study, analisi, risorse operative in cambio del contatto).
       </p>
 
       <div class="case-section-title">Attivit&agrave; svolte</div>
       <ul class="activity-list">
-        <li>Progettazione della strategia di lead generation con lead magnet</li>
+        <li>Progettazione della strategia di lead generation con lead magnet di valore</li>
         <li>Creazione e gestione delle campagne Meta Ads (Lead Forms)</li>
         <li>Qualificazione e segmentazione dei lead in ingresso</li>
-        <li>Ottimizzazione continua del CPL e della qualit&agrave; dei contatti</li>
+        <li>Ottimizzazione continua di CPL e qualit&agrave; dei contatti</li>
       </ul>
 
       <div class="case-section-title">Risultati</div>
@@ -869,17 +778,283 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-value">7x</div>
-          <div class="kpi-label">ROAS anno 1</div>
-          <div class="kpi-delta">&euro;14,6K spesi &rarr; &euro;102K rev</div>
+          <div class="kpi-label">ROAS lead gen</div>
+          <div class="kpi-delta neutral">servizio ricorrente</div>
         </div>
       </div>
 
-      <p class="case-text" style="margin-top:16px;">
-        <strong>Nota:</strong> il calcolo del ROAS considera la fee media mensile di &euro;2.000/cliente + setup iniziale di &euro;1.500, proiettata su 12 mesi. Il valore reale cresce nel tempo grazie alla natura ricorrente del servizio.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== UPTONICA ==================== -->
+<div class="section" id="uptonica">
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-tag">Product Strategy &amp; Go-to-Market</div>
+      <div class="case-client">UpTonica</div>
+      <div class="case-sector">SaaS / MarTech per e-commerce</div>
+      <div class="case-budget">Budget gestito: ~1.500&ndash;2.500 &euro;/mese | Meta Ads</div>
+    </div>
+    <div class="case-body">
+
+      <div class="case-section-title">Contesto</div>
+      <p class="case-text">
+        UpTonica &egrave; la piattaforma SaaS AI-native sviluppata internamente da WebGas: unifica catalogo, contenuti, prezzi, ads, chat e CRM in un unico sistema (7 moduli) al posto dello stack frammentato dell'e-commerce manager. Ho seguito il progetto <strong>in team</strong>, con un ruolo su <strong>strategia e product ownership</strong>, dal posizionamento al go-to-market fino alla costruzione del funnel di acquisizione.
       </p>
 
-      <div class="case-section-title">Spesa totale campagna</div>
-      <p class="case-text">&euro;14.597 | 152.402 impression | Frequenza 4,78</p>
+      <div class="case-section-title">Attivit&agrave; svolte</div>
+      <ul class="activity-list">
+        <li>Definizione del posizionamento e della value proposition (piattaforma unica vs stack di tool scollegati)</li>
+        <li>Architettura del funnel di acquisizione: audit gratuito del sito &rarr; lead via email &rarr; demo</li>
+        <li>Progettazione e gestione delle campagne Meta Ads di lead generation (video ads TOFU)</li>
+        <li>Modellazione del funnel con simulatore e definizione delle soglie di CPL, CPCA e CAC (breakeven vs target)</li>
+        <li>Coordinamento con lo sviluppo prodotto per l'allineamento tra tracking, dashboard e roadmap</li>
+      </ul>
+
+      <div class="case-section-title">Risultati | Funnel lead gen in ottimizzazione</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">&euro;15,40</div>
+          <div class="kpi-label">CPL</div>
+          <div class="kpi-delta">sotto breakeven &euro;30</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">~100</div>
+          <div class="kpi-label">Lead al mese</div>
+          <div class="kpi-delta neutral">CR landing 8%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">&euro;1,24</div>
+          <div class="kpi-label">CPC</div>
+          <div class="kpi-delta neutral">CTR 1,12%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">7 moduli</div>
+          <div class="kpi-label">Piattaforma a go-to-market</div>
+          <div class="kpi-delta neutral">strategia &amp; ownership</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HELLO BAGNO ==================== -->
+<div class="section" id="hellobagno">
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-tag">Nuovo progetto</div>
+      <div class="case-client">Hello Bagno</div>
+      <div class="case-sector">Arredo Bagno &amp; E-commerce</div>
+      <div class="case-budget">Budget gestito: ~3.000&ndash;7.000 &euro;/mese | Google Ads + Meta Ads + Klaviyo</div>
+    </div>
+    <div class="case-body">
+
+      <div class="case-section-title">Contesto</div>
+      <p class="case-text">
+        E-commerce italiano verticale sull'arredo bagno, oltre 20.000 SKU e brand come Geberit, Grohe, Ideal Standard, Paffoni, con l'obiettivo di una forte crescita dei volumi. Alla presa in carico: problema strutturale di tracking (dati persi e budget speso senza misurazione), nessuna segmentazione del catalogo per marginalit&agrave;, Search non-brand assente e un competitor dominante (Deghi).
+      </p>
+
+      <div class="case-section-title">Attivit&agrave; svolte</div>
+      <ul class="activity-list">
+        <li>Audit completo delle campagne esistenti e stop alle campagne in perdita</li>
+        <li>Strategia focalizzata sulla categoria Bagno (6 sottocategorie), esclusione delle categorie a bassa marginalit&agrave;</li>
+        <li>Ristrutturazione Google Ads: Search, Shopping, PMax, Display, YouTube e retargeting</li>
+        <li>Setup campagne Meta Ads full funnel (Facebook + Instagram)</li>
+        <li>Configurazione Klaviyo e migrazione da MailChimp</li>
+        <li>Correzione del setup di tracking e dell'infrastruttura dati</li>
+      </ul>
+
+      <div class="case-section-title">Risultati | dopo il fix del tracking</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">7,9x</div>
+          <div class="kpi-label">ROAS</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">3,88x</div>
+          <div class="kpi-label">MER</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">&euro;29</div>
+          <div class="kpi-label">CPA</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">&euro;100</div>
+          <div class="kpi-label">AOV</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ARTEMISIA ==================== -->
+<div class="section" id="artemisia">
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-tag">Accelerazione digitale</div>
+      <div class="case-client">Artemisia Cornici</div>
+      <div class="case-sector">Home Decor &amp; Marketplace (Amazon)</div>
+      <div class="case-budget">Budget gestito: ~1.500&ndash;3.500 &euro;/mese | Amazon Ads</div>
+    </div>
+    <div class="case-body">
+
+      <div class="case-section-title">Contesto</div>
+      <p class="case-text">
+        Brand italiano di cornici artigianali Made in Italy (prodotti di punta: Cuoricino e formato A4). Punto di partenza: nessuna presenza digitale, zero vendite online, zero infrastruttura. Obiettivo: costruire da zero l'intero ecosistema commerciale su Amazon, dalle prime vendite fino a un posizionamento organico sostenibile.
+      </p>
+
+      <div class="case-section-title">Attivit&agrave; svolte</div>
+      <ul class="activity-list">
+        <li>Scrittura e ottimizzazione delle schede prodotto (titoli, bullet, backend keywords, A+ Content)</li>
+        <li>Gestione completa dell'account Seller Central e del catalogo</li>
+        <li>Setup e gestione delle campagne Amazon Ads (Sponsored Products)</li>
+        <li>Posizionamento premium con badge "Made in Italy"</li>
+        <li>Analisi keyword e ottimizzazione progressiva del posizionamento organico</li>
+        <li>Avvio test FBA + Prime per visibilit&agrave; e conversion rate</li>
+      </ul>
+
+      <div class="case-section-title">Risultati | Costruzione da zero</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">Da 0</div>
+          <div class="kpi-label">Punto di partenza</div>
+          <div class="kpi-delta neutral">nessuna vendita online</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">+450%</div>
+          <div class="kpi-label">Crescita ordini mensili</div>
+          <div class="kpi-delta">vs avvio</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">+120%</div>
+          <div class="kpi-label">Crescita AOV</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">Organico</div>
+          <div class="kpi-label">Vendite spontanee</div>
+          <div class="kpi-delta neutral">senza spesa ads</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DIVIDER: SETUP STRATEGICO ==================== -->
+<div class="divider-title">
+  <h2>Setup Strategico</h2>
+  <p>Progetti in cui ho definito la strategia e l'impianto operativo &mdash; media plan, positioning, funnel e infrastruttura &mdash; in fase di pre-lancio o ottimizzazione, prima della lettura dei risultati a regime.</p>
+</div>
+
+<!-- ==================== 5TATE OF MIND ==================== -->
+<div class="section" id="5om">
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-tag">Setup strategico</div>
+      <div class="case-client">5tate of Mind</div>
+      <div class="case-sector">Streetwear &amp; Brand co-fondato da Gu&egrave;</div>
+      <div class="case-budget">Budget gestito: ~3.000&ndash;6.000 &euro;/mese | Meta Ads + Google Ads</div>
+    </div>
+    <div class="case-body">
+
+      <div class="case-section-title">Contesto</div>
+      <p class="case-text">
+        Brand streetwear italiano con ~15 anni di heritage nella cultura hip-hop, co-fondato dal rapper Gu&egrave; (Cosimo Fini). E-commerce Shopify con fatturato fermo da due anni. La sfida: costruire un'identit&agrave; di brand autonoma e scalabile, riducendo la dipendenza dalla fanbase dell'artista, con l'obiettivo di raddoppiare il fatturato anno su anno tramite una strategia omnicanale.
+      </p>
+
+      <div class="case-section-title">Impianto strategico definito</div>
+      <ul class="activity-list">
+        <li>Strategia integrata Meta Ads (prospecting + retargeting) e Google Ads (brand protection)</li>
+        <li>Struttura Meta full-funnel: awareness su angoli lifestyle e valori, MOFU su viewer qualificati, BOFU catalogo</li>
+        <li>Lead generation per la crescita del database contatti</li>
+        <li>Ottimizzazione UX/CRO del sito (sticky bar, social proof, sistema recensioni)</li>
+        <li>Rigenerazione delle schede prodotto con AI (UpTonica)</li>
+        <li>Coordinamento con il team marketing interno e il referente ads storico</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MARUSE ==================== -->
+<div class="section" id="maruse">
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-tag">Setup strategico</div>
+      <div class="case-client">Maruse</div>
+      <div class="case-sector">Pelletteria Made in Italy &amp; E-commerce D2C (mercato USA)</div>
+      <div class="case-budget">Budget pianificato: ~2.500&ndash;6.500 &euro;/mese | Google Ads + Meta Ads</div>
+    </div>
+    <div class="case-body">
+
+      <div class="case-section-title">Contesto</div>
+      <p class="case-text">
+        Brand di pelletteria business Made in Italy con vendita diretta, ~60-70% delle vendite negli USA e AOV intorno ai $175. Leve distintive: produzione italiana, personalizzazione e spedizione veloce da magazzino US. La sfida: costruire l'impianto Ads per scalare il mercato americano mantenendo la marginalit&agrave;, con go-live a settembre.
+      </p>
+
+      <div class="case-section-title">Impianto strategico definito</div>
+      <ul class="activity-list">
+        <li>Analisi della marginalit&agrave; per prodotto come base per l'allocazione del budget (margine medio account 55%)</li>
+        <li>Media plan multicanale: Search brand, PMax Hero e Discovery US, test IT, Meta prospecting + retargeting</li>
+        <li>Positioning "heritage": produzione con standard del lusso a un prezzo diverso, veicolato omnicanale</li>
+        <li>Definizione di audience e persona su dati GA4 (professionista esigente, gifting, buyer B2B)</li>
+        <li>Audit del feed Google Merchant Center e audit UX/UI del sito (PDP + Homepage)</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DIVIDER: ESPERIENZA IN-HOUSE ==================== -->
+<div class="divider-title">
+  <h2>Esperienza Precedente</h2>
+  <p>Ruolo in-house come Digital Marketing Specialist, prima dell'ingresso in agenzia.</p>
+</div>
+
+<!-- ==================== AVILIA HOME ==================== -->
+<div class="section" id="avilia">
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-tag">Esperienza in-house</div>
+      <div class="case-client">Avilia Home</div>
+      <div class="case-sector">Home &amp; Garden | E-commerce &amp; Amazon Marketplace</div>
+      <div class="case-budget">Budget gestito: ~40.000&ndash;80.000 &euro;/mese su Amazon Ads</div>
+    </div>
+    <div class="case-body">
+
+      <div class="case-section-title">Contesto</div>
+      <p class="case-text">
+        Ruolo <strong>in-house come Digital Marketing Specialist</strong>: gestione strategica dello store Amazon e crescita dell'e-commerce lungo l'intero funnel. A differenza dei progetti lato agenzia, qui ho avuto ownership diretta sulle attivit&agrave; digitali del brand, dall'ottimizzazione del catalogo all'advertising, fino all'email marketing.
+      </p>
+
+      <div class="case-section-title">Attivit&agrave; svolte</div>
+      <ul class="activity-list">
+        <li>Gestione strategica dello <strong>store e del catalogo Amazon</strong> e delle campagne Sponsored</li>
+        <li>Miglioramento del posizionamento organico tramite <strong>SEO e keyword research</strong> (Helium 10)</li>
+        <li>Ottimizzazione delle <strong>schede prodotto</strong> per conversione e visibilit&agrave;</li>
+        <li><strong>Email marketing su Klaviyo</strong> per brand trust, fidelizzazione e conversioni</li>
+        <li>Costruzione di <strong>strategie funnel-based</strong> (TOFU, MOFU, BOFU)</li>
+        <li>Crescita e-commerce e monitoraggio performance su <strong>Seller Central, Shopify e Google Analytics</strong>; campagne su Meta Business Suite e analisi UX con Clarity</li>
+      </ul>
+
+      <div class="case-section-title">Risultati</div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">+30%</div>
+          <div class="kpi-label">Crescita vendite Amazon</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">3,2x</div>
+          <div class="kpi-label">ROAS Amazon Ads</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">15-18%</div>
+          <div class="kpi-label">TACOS (ad spend / vendite)</div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -887,7 +1062,7 @@
 
 <!-- FOOTER -->
 <div class="footer">
-  Vincenzo Boemio | Digital Strategist & Performance Marketing<br>
+  Vincenzo Boemio | Digital Strategist &amp; Growth<br>
   vincenzoboemio2000@gmail.com | +39 333 418 5811 | <a href="https://linkedin.com/in/vincenzo-boemio" target="_blank">LinkedIn</a>
 </div>
 
